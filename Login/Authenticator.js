@@ -2,7 +2,7 @@
 import imgLogin from '../Imagenes/LogoTitanium.jpg'
 import imgusername from '../Imagenes/username.png'
 import imgpassword from '../Imagenes/password.png'
-import { Button, IconButton } from 'react-native-paper'
+import { Button, IconButton, TextInput } from 'react-native-paper'
 const React = require("react")
 const { SafeAreaView, View, Text, ScrollView, Image, TouchableHighlight, TouchableOpacity } = require("react-native")
 
@@ -16,33 +16,21 @@ const Authenticator = () => {
             </View>
             <View style={{flex: 6}}>
                     <View style={{flex:1, alignItems:'center', paddingBottom:30}}>
-                        <View style={{paddingLeft:50, paddingRight:50, backgroundColor:'yellow'}}>
+                        <View style={{paddingLeft:50, paddingRight:50}}>
                         <Image source={imgLogin} />
                         </View>
-                        <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
-    Press me
-  </Button>
-
-  <IconButton
-    icon="camera"
-    color={'red'}
-    size={20}
-    onPress={() => console.log('Pressed')}
-  />
                     </View>
-                {/* <View style={{flex:4}}>                   
-                        
+                <View style={{flex:4}}>                   
                     <View style={{paddingLeft:50, paddingRight:50, paddingTop:20}}>
-                        
-                        <TextInput placeholder="Usuario" returnKeyType="done" style={{borderRadius:10, paddingLeft:100}}/>
-                        <Image source={imgusername} style={{ position:'absolute', top:23, left:80, zIndex:99}} />
+                        <TextInput placeholder="Usuario" returnKeyType="done" style={{borderRadius:10, paddingLeft:100, height:45}}/>
+                        <Image source={imgusername} style={{ position:'absolute', top:30, left:80, zIndex:99, width:22, height:22}} />
                     </View>
 
                     <View style={{paddingLeft:50, paddingRight:50, paddingTop:20}}>
-                        <TextInput placeholder="Contraseña" returnKeyType="done" secureTextEntry={true} style={{borderRadius:10, paddingLeft:100}}/>
-                        <Image source={imgpassword} style={{ position:'absolute', top:23, left:80, zIndex:99}} />
-                        <TouchableOpacity>
-                            <IconButton icon={"calendar"} color="#ED9A0C" size={20}></IconButton>
+                        <TextInput placeholder="Contraseña" returnKeyType="done" secureTextEntry={true} style={{borderRadius:10, paddingLeft:100, height:45}}  />
+                        <Image source={imgpassword} style={{ position:'absolute', top:30, left:80, zIndex:99, width:22, height:22}} />
+                        <TouchableOpacity activeOpacity={0.7} style={{position:'absolute', top: 20, right: 50,}}>
+                            <IconButton icon={"eye"} color="#ED9A0C" size={20}></IconButton>
                             </TouchableOpacity>
                     </View>
                     
@@ -52,19 +40,10 @@ const Authenticator = () => {
                             >Ingresar</Button>
                         </TouchableOpacity>
                     </View>
-                </View> */}
+                </View>
             </View>
             <View style={{flex: 3}}>
             </View>
-          
-
-            {/* <View style={{flexDirection:'column' }}>
-                <Text>mundo</Text>
-            </View>
-            <View style={{flexDirection:'column' }}>
-                
-            </View> */}
-
        </View>
     )
 }
