@@ -9,8 +9,7 @@ const { SafeAreaView, View, Text, ScrollView, Image, TouchableHighlight, Touchab
 const Authenticator = () => {
 
     return(
-       <View style={{flex: 1}}>
-    
+       <View style={{flex: 1}}>   
             
             <View style={{flex: 2 }}>
             </View>
