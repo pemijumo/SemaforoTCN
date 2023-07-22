@@ -2,7 +2,8 @@ import * as React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home  from '../Home/Home';
 import Authenticator from './Authenticator';
-import CCliente from '../Catalogos/CCliente';
+import CCliente from '../Catalogos/Cliente/CCliente';
+import ClienteList from '../Catalogos/Cliente/ClienteList';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +11,7 @@ function Navigator()
 {
     return(
         // <NavigationContainer>
-            <Stack.Navigator initialRouteName="Cliente" 
+            <Stack.Navigator initialRouteName="ClienteList" 
              screenOptions={{headerShown: false, }} 
              //screenOptions={{ headerMode: 'none' }} 
              options={{header: () => null}}
@@ -24,6 +25,10 @@ function Navigator()
                 <Stack.Screen name="Cliente" component={CCliente} 
                  options={{header: () => null}} 
                 />
+                <Stack.Screen name="ClienteList" component={ClienteList} 
+                 options={{header: () => null}} 
+                />
+
                 
                 
             </Stack.Navigator>
