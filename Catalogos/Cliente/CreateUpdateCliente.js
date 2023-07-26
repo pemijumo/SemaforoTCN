@@ -4,7 +4,9 @@ import { ScrollView, TouchableOpacity } from "react-native";
 import { View, Text, StyleSheet } from "react-native";
 import { Button, IconButton, TextInput } from 'react-native-paper';
 import { API_URL } from '../../Constantes/constants';
-const CCliente = () => {
+
+
+const CreateUpdateCliente = () => {
 
     
      useEffect(() => {
@@ -21,21 +23,21 @@ const CCliente = () => {
        }, [])
 
         GetClientes = async () => {
-            let Controller = `${API_URL}GetCatalog`;
-            let response = await fetch(Controller, 
-            {
-                method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-                body: JSON.stringify({ 
-                    Parameters: { TipoConsulta: 1 },
-                    StoredProcedure: "sp_Catalogos" 
-                })
+            // let Controller = `${API_URL}GetCatalog`;
+            // let response = await fetch(Controller, 
+            // {
+            //     method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            //     body: JSON.stringify({ 
+            //         Parameters: { TipoConsulta: 1 },
+            //         StoredProcedure: "sp_Catalogos" 
+            //     })
             
-            });
+            // });
 
-            let json = await response.json();
+            // let json = await response.json();
 
-            console.log(json);
-            return await json;
+            // console.log(json);
+            // return await json;
 
             // console.log('se obtiene listado de almacenes')
             // let url_ = `${API_URL_GRAL}TrackStocks/ConsultaCatalogo?` 
@@ -56,31 +58,31 @@ const CCliente = () => {
         <View style={{flex: 1, padding:20}}>
             <ScrollView keyboardShouldPersistTaps='handled'>
             <View style={{alignContent:"flex-end", alignItems:"flex-end"}}>                
-                <Text>No Registro: 0</Text>
+                <Text style={{color:'black'}}>No Registro: 0</Text>
             </View>
             <View style={{paddingTop:10}}/>
             <View>                
-                <Text>Nombre:</Text>
+                <Text style={{color:'black'}}>Nombre:</Text>
                 <TextInput placeholder="Nombre" style={styles.inputBox}/>
             </View>
             <View style={{paddingTop:10}}/>
             <View>                
-                <Text>Direccion:</Text>
+                <Text style={{color:'black'}}>Direccion:</Text>
                 <TextInput placeholder="Direccion" style={styles.inputBox} />
             </View>
             <View style={{paddingTop:10}}/>
             <View>                
-            <Text>Telefono:</Text>
+            <Text style={{color:'black'}}>Telefono:</Text>
                 <TextInput placeholder="Telefono" style={styles.inputBox}/>
             </View>
             <View style={{paddingTop:10}}/>
             <View>                
-                <Text>Correo:</Text>
+                <Text style={{color:'black'}}>Correo:</Text>
                 <TextInput placeholder="Correo" style={styles.inputBox}/>
             </View>
             <View style={{paddingTop:10}}/>
             <View>                
-            <Text>Tipo:</Text>
+            <Text style={{color:'black'}}>Tipo:</Text>
                 <TextInput placeholder="Tipo" style={styles.inputBox}/>
             </View>
             <View style={{paddingTop:10}}/>
@@ -94,7 +96,7 @@ const CCliente = () => {
         )
 }
 
-export default (CCliente);
+export default (CreateUpdateCliente);
 
 const styles = StyleSheet.create({
     inputBox:{

@@ -1,5 +1,5 @@
 
-const HOST = '192.168.1.65:50'
+const HOST = '192.168.10.121:50'
 export const API_URL_GRAL = `http://${HOST}/`;
 export const API_URL = `http://${HOST}/TNC/`;
 

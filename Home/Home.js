@@ -9,7 +9,7 @@ class Home extends Component{
         return(
             <View style={{color:'black'}}>
                 <View style={{alignSelf:'center', alignContent:'center', alignItems:'center'}}>
-                    <Text>IN HOME</Text>
+                    <Text style={{color:'black'}}>IN HOME</Text>
                     {/* <Image 
                         source={require('../Imagenes/ImgInicioTitanium.jpg')} 
                         style={{ width: windowWidth, height: windowHeight-200, resizeMode:'stretch'}}
