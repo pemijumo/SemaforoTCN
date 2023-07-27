@@ -12,11 +12,6 @@ const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 class HomeScreen extends Component {
-
-  componentDidMount()
-  {
-    console.log('entro en home screen')
-  }
   
     toggleDrawer = () => {
       this.props.navigationProps.toggleDrawer();

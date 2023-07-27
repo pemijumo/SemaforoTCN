@@ -12,19 +12,18 @@ const ClienteList = (props) => {
     const [tableHeadEntregar, setHeadEntregar] = React.useState(['Lista de clientes']);
     const [widthHeader, setwidthHeader] = React.useState([1]);
      useEffect(() => {
-         async function fetchData() {
-            //console.log(props)
-
-            GetClientes();
-    //     //   Dimensions.addEventListener("change", onChange);
-    //     //   return () => {
-    //     //     Dimensions.removeEventListener("change", onChange);
-    //     //   };
-         }
+         //async function fetchData() {
+            const unsubscribe = props.navigation.addListener('focus', () => {
+                GetClientes();
+                //Put your Data loading function here instead of my loadData()
+              });
+          
+              return unsubscribe;
+         //}
     
-         fetchData();
+         //fetchData();
     
-       }, [])
+       }, [props.navigation])
 
         GetClientes = async () => {
             let Controller = `${API_URL}GetCatalog`;
@@ -32,7 +31,7 @@ const ClienteList = (props) => {
             {
                 method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
                 body: JSON.stringify({ 
-                    Parameters: { TipoConsulta: 1 },
+                    Parameters: { TipoConsulta: 1, Opcion : 1 },
                     StoredProcedure: "sp_Catalogos" 
                 })
             
@@ -50,7 +49,14 @@ const ClienteList = (props) => {
                 <View style={{backgroundColor:'orange', width:95, borderRadius:5}}>
                     <TouchableOpacity
                     onPress={()=> {
-                        props.navigation.navigate("CreateUpdateCliente",{})
+                        props.navigation.navigate("CreateUpdateCliente",{
+                            Registro: 0,
+                            Nombre : "",
+                            Direccion : "",
+                            Telefono : "",
+                            Correo : "",
+                            Tipo : "",
+                        })
                         }
                     }
                     >
@@ -84,7 +90,14 @@ const ClienteList = (props) => {
                         </View>
                         <View style={{flex:2, backgroundColor:'red'}}>
                             <IconButton 
-                            onPress={()=> props.navigation.navigate("CreateUpdateCliente",{})}
+                            onPress={()=> props.navigation.navigate("CreateUpdateCliente",{ 
+                                Registro : item.idCliente,
+                                Nombre : item.Nombre,
+                                Direccion : item.Direccion,
+                                Telefono : item.Telefono,
+                                Correo : item.Correo,
+                                Tipo : item.Tipo,
+                            })}
                             icon={"pencil"} color="#ED9A0C" size={20}>
 
                             </IconButton>
