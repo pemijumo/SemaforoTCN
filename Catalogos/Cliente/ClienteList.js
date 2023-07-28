@@ -42,6 +42,29 @@ const ClienteList = (props) => {
             return await json;
         }
 
+        DeleteClienteFunction = async (vlIdCliente) => {
+            let Controller = `${API_URL}InsertUpdateDeleteCatalog`;
+            let response = await fetch(Controller, 
+            {
+                method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+                body: JSON.stringify({ 
+                    Parameters: { TipoConsulta: 1, Opcion : 3, IdCliente: vlIdCliente },
+                    StoredProcedure: "sp_Catalogos" 
+                })
+            
+            });
+
+            let json = await response.json();
+
+            Alert.alert(
+                'Mensaje:', json.Message,//MensajeValidaciones,
+                [{ text: 'OK', onPress: () => GetClientes(), style: 'cancel',}],
+                {cancelable: false},
+              );
+        }
+
+
+
        
 
       return (
@@ -82,13 +105,10 @@ const ClienteList = (props) => {
                             <Text style={{fontWeight:'bold', color:'black'}}> {item.Nombre}</Text>                
                             </View>
                             <View style={{flexDirection:'row'}}>
-                            <Text style={{fontSize: 15, color:'black'}}> {item.Direccion}</Text>                
-                            </View>
-                            <View style={{flexDirection:'row'}}>
                             <Text style={{fontSize: 15, color:'black'}}> {item.Telefono}</Text>                
                             </View>
                         </View>
-                        <View style={{flex:2, backgroundColor:'red'}}>
+                        <View style={{flex:2}}>
                             <IconButton 
                             onPress={()=> props.navigation.navigate("CreateUpdateCliente",{ 
                                 Registro : item.idCliente,
@@ -103,7 +123,22 @@ const ClienteList = (props) => {
                             </IconButton>
                         </View>
                         <View style={{flex:2}}>
-                            <IconButton icon={"apple"} color="red" size={20}></IconButton>
+                            <IconButton icon={"delete"} color="#ED9A0C" size={20}
+                            onPress={() => 
+                                Alert.alert(
+                                    'Eliminación',
+                                    '¿Esta seguro de eliminar el registro de este cliente?',
+                                    [
+                                      { text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                                      { text: 'Si', onPress: ()  => {
+                                            DeleteClienteFunction(item.idCliente);
+                                        }
+                                      },
+                                    ],
+                                    { cancelable: false }
+                                  )
+                            }
+                            ></IconButton>
                         </View>
                         </View>
                       </View>

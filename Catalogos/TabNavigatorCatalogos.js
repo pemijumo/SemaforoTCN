@@ -25,7 +25,7 @@ const TabNavigatorCatalogos = (props) =>
             }} 
             options = {({ navigation }) => ({
             tabBarLabel : 'Clientes',
-            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'av-timer'} /></View>),
+            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'account-details'} /></View>),
 
             })}
         />
@@ -37,35 +37,35 @@ const TabNavigatorCatalogos = (props) =>
                 }} 
             options = {({ navigation }) => ({
             tabBarLabel : 'Polizas',
-            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'camera'} /></View>),
+            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'file-document'} /></View>),
 
             })}
         />
         <Tab.Screen name="Inmuebles" component={PolizaList}  
             options = {({ navigation }) => ({
             tabBarLabel : 'Inmuebles',
-            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'camera'} /></View>),
+            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'ballot'} /></View>),
 
             })}
         />
         <Tab.Screen name="Bloques" component={PolizaList}  
             options = {({ navigation }) => ({
             tabBarLabel : 'Bloques',
-            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'camera'} /></View>),
+            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'apps'} /></View>),
 
             })}
         />
         <Tab.Screen name="Servicio" component={PolizaList}  
             options = {({ navigation }) => ({
             tabBarLabel : 'Servicio',
-            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'camera'} /></View>),
+            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'server-plus'} /></View>),
 
             })}
         />
         <Tab.Screen name="Responsable" component={PolizaList}  
             options = {({ navigation }) => ({
             tabBarLabel : 'Responsable',
-            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'camera'} /></View>),
+            tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'account-tie-hat'} /></View>),
 
             })}
         />

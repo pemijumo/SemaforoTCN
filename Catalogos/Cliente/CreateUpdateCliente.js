@@ -25,24 +25,31 @@ const CreateUpdateCliente = (props) => {
 
         GuardaCliente = async () => {
 
-            let Controller = `${API_URL}InsertUpdateCliente`;
+            let Controller = `${API_URL}InsertUpdateDeleteCatalog`;
             let response = await fetch(Controller, 
             {
                 method: 'POST', headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
                 body: JSON.stringify({ 
-                    IdCliente: vlIdCliente, 
-                    Nombre: vlNombre, 
-                    Direccion: vlDireccion, 
-                    Telefono: vlTelefono, 
-                    Correo: vlCorreo, 
-                    Tipo: vlTipo, 
-                    Usuario: "0"
+                    Parameters: { 
+                        TipoConsulta: 1, 
+                        Opcion: 2,
+                        IdCliente: vlIdCliente, 
+                        Nombre: vlNombre, 
+                        Direccion: vlDireccion, 
+                        Telefono: vlTelefono, 
+                        Correo: vlCorreo, 
+                        Tipo: vlTipo, 
+                        UserId: "0" },
+                    StoredProcedure: "sp_Catalogos" 
                 })
             
             });
 
             let json = await response.json();
-            console.log(json)
+            if(json.Type == "success")
+            {
+                setvlIdCliente(json.Cliente[0].IdCliente)
+            }
 
             Alert.alert(
                 'Mensaje:', json.Message,//MensajeValidaciones,
@@ -58,7 +65,7 @@ const CreateUpdateCliente = (props) => {
         <View style={{flex: 1, padding:20}}>
             <ScrollView keyboardShouldPersistTaps='handled'>
             <View style={{alignContent:"flex-end", alignItems:"flex-end"}}>                
-                <Text style={{color:'black'}}>No Registro: {props.route.params.Registro}</Text>
+                <Text style={{color:'black'}}>No Registro: {vlIdCliente}</Text>
             </View>
             <View style={{paddingTop:10}}/>
             <View>                
