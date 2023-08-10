@@ -4,6 +4,7 @@ import { Button, IconButton, TextInput } from 'react-native-paper';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import ClienteList from './Cliente/ClienteList';
 import PolizaList from './Poliza/PolizaList';
+import InmuebleList from './Inmueble/InmuebleList';
 let iconSize = 30
 const Tab = createMaterialBottomTabNavigator();
 
@@ -41,7 +42,7 @@ const TabNavigatorCatalogos = (props) =>
 
             })}
         />
-        <Tab.Screen name="Inmuebles" component={PolizaList}  
+        <Tab.Screen name="Inmuebles" component={InmuebleList}  
             options = {({ navigation }) => ({
             tabBarLabel : 'Inmuebles',
             tabBarIcon: ({ tintColor }) => (<View><IconButton style={[{ paddingBottom:20, bottom: 10, alignItems: 'center' }]} color='#ED9A0C' size={iconSize} icon={'ballot'} /></View>),

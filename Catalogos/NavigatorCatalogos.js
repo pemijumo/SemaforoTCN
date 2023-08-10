@@ -9,6 +9,7 @@ import { createDrawerNavigator, DrawerContentScrollView,
   DrawerItem, } from '@react-navigation/drawer';
 
 import CreateUpdatePoliza from './Poliza/CreateUpdatePoliza';
+import CreateUpdateInmueble from './Inmueble/CreateUpdateInmueble';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -52,7 +53,10 @@ const AppNavigatorCatalogos = ({ navigation }) =>
                 options={CreateUpdatePoliza.navigationOptions}
                  //options={{header: () => null}} 
                 />
-                
+                <Stack.Screen name="CreateUpdateInmueble" component={CreateUpdateInmueble} 
+                options={CreateUpdateInmueble.navigationOptions}
+                 //options={{header: () => null}} 
+                />
             </Stack.Navigator>
     )
 
