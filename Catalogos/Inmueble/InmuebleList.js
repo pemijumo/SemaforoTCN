@@ -155,4 +155,4 @@ const styles = StyleSheet.create({
     },
     header: {backgroundColor: '#004481'},
     text: { margin: 6, textAlign:'center', color:'white' }
-})
+})  

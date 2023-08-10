@@ -1,4 +1,4 @@
-+// const React = require("react")
+// const React = require("react")
 import React, { useState, useEffect } from 'react';
 import { ScrollView, TouchableOpacity, Alert } from "react-native";
 import { View, Text, StyleSheet } from "react-native";
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
     inputBox:{
         borderRadius:5, paddingLeft:100, height:35
     }
-})
+})  
