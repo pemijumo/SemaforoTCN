@@ -38,6 +38,10 @@ const ClienteList = (props) => {
             });
 
             let json = await response.json();
+
+            console.log('valor de lista de clientes')
+            console.log(json)
+
             setListClientes(json)
             return await json;
         }
@@ -73,7 +77,7 @@ const ClienteList = (props) => {
                     <TouchableOpacity
                     onPress={()=> {
                         props.navigation.navigate("CreateUpdateCliente",{
-                            Registro: 0,
+                            Registro: "0",
                             Nombre : "",
                             Direccion : "",
                             Telefono : "",
@@ -111,12 +115,21 @@ const ClienteList = (props) => {
                         <View style={{flex:2}}>
                             <IconButton 
                             onPress={()=> props.navigation.navigate("CreateUpdateCliente",{ 
-                                Registro : item.idCliente,
+                                Registro : item.IdCliente,
                                 Nombre : item.Nombre,
                                 Direccion : item.Direccion,
+                                IdInmueble: item.IdInmueble,
+                                DescInmueble: item.DescInmueble,
+                                PersonaContacto: item.PersonaContacto,
                                 Telefono : item.Telefono,
                                 Correo : item.Correo,
-                                Tipo : item.Tipo,
+                                Oficina: item.Oficina,
+                                IdAdministrativo: item.IdAdministrativo,
+                                DescAdministrativo: item.DescAdministrativo,
+                                IdArquitecto: item.IdArquitecto,
+                                DescArquitecto: item.DescArquitecto,
+                                IdTipoCliente: item.IdTipoCliente,
+                                DescTipoCliente: item.DescTipoCliente
                             })}
                             icon={"pencil"} color="#ED9A0C" size={20}>
 
@@ -131,7 +144,7 @@ const ClienteList = (props) => {
                                     [
                                       { text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
                                       { text: 'Si', onPress: ()  => {
-                                            DeleteClienteFunction(item.idCliente);
+                                            DeleteClienteFunction(item.IdCliente);
                                         }
                                       },
                                     ],
@@ -144,7 +157,7 @@ const ClienteList = (props) => {
                       </View>
                       
                     )}
-                    keyExtractor={item => item.idCliente}
+                    keyExtractor={item => item.IdCliente}
                 
                 />
 
